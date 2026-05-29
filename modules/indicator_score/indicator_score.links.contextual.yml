@@ -1,0 +1,10 @@
+entity.indicator_score.edit_form:
+  route_name: entity.indicator_score.edit_form
+  group: indicator_score
+  title: 'Edit'
+
+entity.indicator_score.delete_form:
+  route_name: entity.indicator_score.delete_form
+  group: indicator_score
+  title: 'Delete'
+  weight: 10

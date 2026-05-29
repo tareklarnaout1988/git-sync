@@ -1,0 +1,11 @@
+entity.psdi_perception.settings:
+  title: 'Psdi perception'
+  description: 'Configure a Psdi perception entity type.'
+  route_name:  entity.psdi_perception.settings
+  parent: system.admin_structure
+
+entity.psdi_perception.collection:
+  title: 'Psdi perceptions'
+  description: 'List of psdi perceptions.'
+  route_name: entity.psdi_perception.collection
+  parent: system.admin_content

@@ -1,0 +1,22 @@
+entity.indicator_score.settings:
+  title: 'Settings'
+  route_name: entity.indicator_score.settings
+  base_route: entity.indicator_score.settings
+entity.indicator_score.view:
+  title: 'View'
+  route_name: entity.indicator_score.canonical
+  base_route: entity.indicator_score.canonical
+entity.indicator_score.edit_form:
+  title: 'Edit'
+  route_name: entity.indicator_score.edit_form
+  base_route: entity.indicator_score.canonical
+entity.indicator_score.delete_form:
+  title: 'Delete'
+  route_name: entity.indicator_score.delete_form
+  base_route: entity.indicator_score.canonical
+  weight: 10
+entity.indicator_score.collection:
+  title: 'Indicator scores'
+  route_name: entity.indicator_score.collection
+  base_route: system.admin_content
+  weight: 10

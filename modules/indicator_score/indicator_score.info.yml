@@ -1,0 +1,5 @@
+name: 'Indicator Score'
+type: module
+description: 'Here we define Dimension, subdimesion and indicator classes as well as CRUD country profile edit pages'
+package: Custom
+core_version_requirement: ^10 || ^11

@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for Countries Info module.
+ */
+
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Site\Settings;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_install().
+ */
+function countries_info_install() {
+  $vocabulary = Vocabulary::load('cit_countries_information');
+  $module_handler = \Drupal::service('module_handler');
+  $module_path = $module_handler->getModule('countries_info')->getPath();
+
+  if (empty($vocabulary)) {
+    // Obtain configuration from yaml files.
+    $countries_info_config_path = $module_path . '/config';
+    $countries_info_config_storage = new FileStorage($countries_info_config_path);
+
+    $default_config_path = Settings::get('config_sync_directory', FALSE);
+    $default_config_storage = new FileStorage($default_config_path);
+
+    // Obtain the storage manager for vocabularies.
+    // Create a new vocabulary from the yaml configuration and save.
+    $taxonomy_vocabulary_config = $default_config_storage->read('taxonomy.vocabulary.cit_countries_information');
+    if (empty($taxonomy_vocabulary_config)) {
+      // If config-sync not available then read module's config for vocabulary.
+      $taxonomy_vocabulary_config = $countries_info_config_storage->read('taxonomy.vocabulary.cit_countries_information');
+    }
+
+    \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')
+      ->create($taxonomy_vocabulary_config)
+      ->save();
+
+    $config_field_items = [
+      // Config of the official name field.
+      'field.storage.taxonomy_term.field_citf_official_name',
+      'field.field.taxonomy_term.cit_countries_information.field_citf_official_name',
+      // Config of the iso2 code field.
+      'field.storage.taxonomy_term.field_citf_iso2_code',
+      'field.field.taxonomy_term.cit_countries_information.field_citf_iso2_code',
+      // Config of the iso3 code field.
+      'field.storage.taxonomy_term.field_citf_iso3_code',
+      'field.field.taxonomy_term.cit_countries_information.field_citf_iso3_code',
+      // Config of the iso numeric code field.
+      'field.storage.taxonomy_term.field_citf_iso_num_code',
+      'field.field.taxonomy_term.cit_countries_information.field_citf_iso_num_code',
+      // Config of the continent field.
+      'field.storage.taxonomy_term.field_citf_continent',
+      'field.field.taxonomy_term.cit_countries_information.field_citf_continent',
+      // Config of the taxonomy term countries information form display.
+      'core.entity_form_display.taxonomy_term.cit_countries_information.default',
+      // Config of the taxonomy term countries information view display.
+      'core.entity_view_display.taxonomy_term.cit_countries_information.default',
+    ];
+
+    foreach ($config_field_items as $config_name) {
+      $config_record = $default_config_storage->read($config_name);
+
+      if (empty($config_record)) {
+        // If config-sync not available then read module's config for field.
+        $config_record = $countries_info_config_storage->read($config_name);
+      }
+
+      $entity_type = \Drupal::service('config.manager')->getEntityTypeIdByName($config_name);
+      /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $storage */
+      $storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+      $entity = $storage->createFromStorageRecord($config_record);
+      $entity->save();
+    }
+  }
+
+  $countries_data_csv = $module_path . '/data/countries.csv';
+
+  if (($handle = fopen($countries_data_csv, "r")) !== FALSE) {
+    $data = [];
+
+    while (($data = fgetcsv($handle)) !== FALSE) {
+      if (empty($data[0])) {
+        // Skip if empty row.
+        continue;
+      }
+      elseif (!empty($data[0]) && $data[0] == 'iso2') {
+        // Skip row of title.
+        continue;
+      }
+      else {
+        // Create  new term.
+        $term_data = [
+          'vid' => 'cit_countries_information',
+          'name' => $data[2] ?? '',
+          'status' => $data[6] ?? '',
+          'path' => '/country-info/' . strtoupper($data[0]),
+          'field_citf_official_name' => $data[3] ?? '',
+          'field_citf_iso2_code' => $data[0] ?? '',
+          'field_citf_iso3_code' => $data[1] ?? '',
+          'field_citf_iso_num_code' => $data[4] ?? '',
+          'field_citf_continent' => $data[5] ?? '',
+        ];
+        $term = Term::create($term_data);
+        $term->enforceIsNew();
+        $term->save();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function countries_info_uninstall() {
+  $vids = [
+    'cit_countries_information',
+  ];
+
+  // Delete 'cit_countries_information' taxonomy.
+  foreach ($vids as $vid) {
+    $vocabulary = Vocabulary::load($vid);
+    if (!empty($vocabulary)) {
+      $vocabulary->delete();
+    }
+  }
+}

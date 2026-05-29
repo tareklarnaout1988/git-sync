@@ -1,0 +1,150 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Indicator Score module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function indicator_score_theme(): array
+{
+  $return = [
+    'indicator_table' => [
+      'variables' => [
+        'periods' => [],
+        'period' => '',
+        'countries'   => [],
+        'columns'     => [],
+        'scores'      => [],
+        'header_rows' => [],
+      ],
+      'template' => 'indicator-table',
+    ],
+    // 'indicator' => ['render element' => 'elements'],
+
+  ];
+
+  return $return;
+}
+
+/**
+ * Prepares variables for indicator score templates.
+ *
+ * Default template: indicator-score.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the indicator score information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_indicator_score(array &$variables): void
+{
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function indicator_score_user_cancel($edit, UserInterface $account, $method): void
+{
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish indicator scores.
+      $storage = \Drupal::entityTypeManager()->getStorage('indicator_score');
+      $indicator_score_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($indicator_score_ids) as $indicator_score) {
+        $indicator_score->set('status', FALSE)->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize indicator scores.
+      $storage = \Drupal::entityTypeManager()->getStorage('indicator_score');
+      $indicator_score_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($indicator_score_ids) as $indicator_score) {
+        $indicator_score->setOwnerId(0)->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function indicator_score_user_predelete(UserInterface $account): void
+{
+  // Delete indicator scores that belong to this account.
+  $storage = \Drupal::entityTypeManager()->getStorage('indicator_score');
+  $indicator_score_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  $storage->delete(
+    $storage->loadMultiple($indicator_score_ids)
+  );
+  // Delete old revisions.
+  $indicator_score_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  foreach (array_keys($indicator_score_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}
+
+function indicator_score_form_indicator_score_add_form_alter(array &$form, FormStateInterface $form_state)
+{
+  indicator_score_score_widget($form);
+}
+function indicator_score_form_indicator_score_edit_form_alter(array &$form, FormStateInterface $form_state)
+{
+  indicator_score_score_widget($form);
+}
+
+function indicator_score_score_widget(array &$form): void
+{
+  if (isset($form['score']['widget'][0]['value'])) {
+    $el = &$form['score']['widget'][0]['value'];
+    $el['#step'] = '0.00001'; // autorise décimales
+    $el['#min']  = 0;
+    $el['#max']  = 100;
+    $el['#element_validate'][] = 'indicator_score_normalize_decimal';
+  }
+}
+
+function indicator_score_normalize_decimal(array &$element, FormStateInterface $form_state, array &$complete_form)
+{
+  $parents = $element['#parents'];
+  $val = $form_state->getValue($parents);
+
+  if (is_string($val)) {
+    $val = preg_replace('/\h+/u', '', $val); // espaces
+
+
+    $val = strtr($val, [',' => '.']);        // virgule -> point
+    // (optionnel) caster en string numérique standardisée à 2 décimales si non vide :
+    if ($val !== '' && is_numeric($val)) {
+
+      $val = number_format((float) $val, 15, '.', '');
+    }
+    $form_state->setValue($parents, $val);
+  }
+}

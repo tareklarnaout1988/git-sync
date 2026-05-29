@@ -1,0 +1,94 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Provides a psdi perception entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function psdi_perception_theme(): array {
+  return [
+    'psdi_perception' => ['render element' => 'elements'],
+  ];
+}
+
+/**
+ * Prepares variables for psdi perception templates.
+ *
+ * Default template: psdi-perception.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the psdi perception information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_psdi_perception(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function psdi_perception_user_cancel($edit, UserInterface $account, $method): void {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish psdi perceptions.
+      $storage = \Drupal::entityTypeManager()->getStorage('psdi_perception');
+      $psdi_perception_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($psdi_perception_ids) as $psdi_perception) {
+        $psdi_perception->set('status', FALSE)->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize psdi perceptions.
+      $storage = \Drupal::entityTypeManager()->getStorage('psdi_perception');
+      $psdi_perception_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($psdi_perception_ids) as $psdi_perception) {
+        $psdi_perception->setOwnerId(0)->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function psdi_perception_user_predelete(UserInterface $account): void {
+  // Delete psdi perceptions that belong to this account.
+  $storage = \Drupal::entityTypeManager()->getStorage('psdi_perception');
+  $psdi_perception_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  $storage->delete(
+    $storage->loadMultiple($psdi_perception_ids)
+  );
+  // Delete old revisions.
+  $psdi_perception_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  foreach (array_keys($psdi_perception_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

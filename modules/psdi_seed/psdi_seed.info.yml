@@ -1,0 +1,5 @@
+name: 'psdi_seed'
+type: module
+description: 'Create taxonomies and import Dimensions/SubDimensions/Indicators (inline, no file).'
+package: Custom
+core_version_requirement: ^10 || ^11

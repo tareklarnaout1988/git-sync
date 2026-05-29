@@ -1,0 +1,70 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: c7e53a6d-94d5-4eff-9c4a-0463901f54b2
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    467719c1-16d3-455c-9459-dc19d24aa368: user
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Power and electricity'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      uri: 'internal:/psdi-dashboard/electricity'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -46
+  expanded:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_status:
+    -
+      value: true
+translations:
+  fr:
+    title:
+      -
+        value: 'Énergie et électricité'
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        entity: 467719c1-16d3-455c-9459-dc19d24aa368
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1765797644

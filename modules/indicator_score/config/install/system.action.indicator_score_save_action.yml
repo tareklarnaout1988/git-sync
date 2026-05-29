@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - indicator_score
+id: indicator_score_save_action
+label: 'Save indicator scores'
+type: indicator_score
+plugin: entity:save_action:indicator_score
+configuration: {  }

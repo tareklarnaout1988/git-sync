@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: dd7c5325-ed2c-4d29-a6a0-02350e6632bf
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Socioeconomic Inclusion'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_target_link:
+    -
+      uri: 'internal:/psdi-dashboard/socioeconomic'
+      title: ''
+      options: {  }
+  body:
+    -
+      value: '<p class="text-align-justify">The Socioeconomic inclusion dimension assesses service support that ensures that education, skills development, health and healthcare, water and sanitation, digital technology, employability, mobility, inclusion and fairness, and safety are provided seamlessly to citizens for improving their well-being. The dimension comprises five subdimensions: youth and employment and training; poverty and inequality; gender and women empowerment; health; and water and sanitation, each with a subset of underlying indicators.</p>'
+      format: full_html
+      summary: ''

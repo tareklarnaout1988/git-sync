@@ -1,0 +1,5 @@
+name: 'psdi_search'
+type: module
+description: 'Search API Processor to psdi indicator score'
+package: Custom
+core_version_requirement: ^10 || ^11

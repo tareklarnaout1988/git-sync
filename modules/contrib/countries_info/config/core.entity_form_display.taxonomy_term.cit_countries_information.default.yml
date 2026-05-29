@@ -1,0 +1,85 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.cit_countries_information.field_citf_continent
+    - field.field.taxonomy_term.cit_countries_information.field_citf_iso2_code
+    - field.field.taxonomy_term.cit_countries_information.field_citf_iso3_code
+    - field.field.taxonomy_term.cit_countries_information.field_citf_iso_num_code
+    - field.field.taxonomy_term.cit_countries_information.field_citf_official_name
+    - taxonomy.vocabulary.cit_countries_information
+  module:
+    - path
+    - text
+id: taxonomy_term.cit_countries_information.default
+targetEntityType: taxonomy_term
+bundle: cit_countries_information
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_citf_continent:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_citf_iso2_code:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_citf_iso3_code:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_citf_iso_num_code:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_citf_official_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden: {  }

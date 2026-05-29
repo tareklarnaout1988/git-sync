@@ -1,0 +1,5 @@
+name: 'PSDI Export'
+type: module
+description: 'export feature PSDI Scores'
+package: Custom
+core_version_requirement: ^10 || ^11

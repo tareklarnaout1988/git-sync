@@ -1,0 +1,6 @@
+services:
+  psdi_seed.commands:
+    class: Drupal\psdi_seed\Commands\PsdiSeedCommands
+    arguments: ['@entity_type.manager', '@psdi_seed.taxonomy_setup']
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,5 @@
+name: 'Custom Admin Menu'
+type: module
+description: 'Test module that adds a custom admin menu with submenus.'
+core_version_requirement: ^11
+package: 'Custom'

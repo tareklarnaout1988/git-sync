@@ -1,0 +1,68 @@
+/* --- Scroll container (inchangé) --- */
+.psdi-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- Table en mode colonnes fixes --- */
+.psdi-table {
+  table-layout: fixed;      /* largeur des colonnes définie par CSS, pas par le contenu */
+  width: max-content;       /* s’étend à la somme des colonnes -> déclenche le scroll */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Largeur par défaut des colonnes (sauf la 1re) */
+.psdi-table thead th,
+.psdi-table tbody td {
+  width: 420px;             /* ajuste à ton goût : 110–140px marche bien */
+}
+
+/* 1re colonne "Country" plus large et sticky */
+.psdi-table thead th.psdi-sticky,
+.psdi-table tbody td.psdi-sticky {
+  min-width: 180px;         /* largeur confortable pour le pays */
+  max-width: 260px;
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 4;
+  box-shadow: 2px 0 0 #eee;
+}
+
+/* Header sticky en haut (dans le conteneur, pas le viewport) */
+.psdi-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: #fff;
+}
+
+/* ======= OPTION A : multi-ligne (recommandé) ======= */
+.psdi-table thead th {
+  white-space: normal;      /* autorise le retour à la ligne */
+  word-break: break-word;   /* coupe les mots très longs si besoin */
+}
+
+/* ======= OPTION B : une seule ligne + ellipsis ======= */
+/* (active cette variante à la place de l’option A) */
+/*
+.psdi-table thead th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+*/
+
+/* Tes styles existants */
+.psdi-table th, .psdi-table td { border: 1px solid #ddd; padding: 6px; font-size: 13px; }
+.cell-null { color: #888; font-style: italic; }
+.cell-num  { text-align: right; }
+
+/* Heatmap (si utilisée) */
+.hmap-0   { background: rgba(255, 0, 0, 0.12); }
+.hmap-25  { background: rgba(255,165,0,0.12); }
+.hmap-50  { background: rgba(255,255,0,0.18); }
+.hmap-75  { background: rgba(144,238,144,0.22); }
+.hmap-100 { background: rgba(0,128,0,0.22); }

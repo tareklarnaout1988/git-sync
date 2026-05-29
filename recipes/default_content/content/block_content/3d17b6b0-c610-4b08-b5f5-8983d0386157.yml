@@ -1,0 +1,71 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 3d17b6b0-c610-4b08-b5f5-8983d0386157
+  bundle: basic
+  default_langcode: en
+  depends:
+    467719c1-16d3-455c-9459-dc19d24aa368: user
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Power and Electricity'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 0
+  content_translation_created:
+    -
+      value: 1765800109
+  field_target_link:
+    -
+      uri: 'internal:/psdi-dashboard/electricity'
+      title: ''
+      options: {  }
+  body:
+    -
+      value: '<p class="text-align-justify">The power and electricity dimensions assess service delivery performance and progress in ensuring that electricity and renewable energy access are sustainable services to citizens while protecting the environment. The four subdimensions included provide a comprehensive assessment of the sector performance and gaps in ensuring scaled electricity access and use, electricity generation, climate change and green growth, and the electricity regulatory framework. The electricity access and use subdimension reflect performance using seven indicators: access to clean fuels and technologies for cooking (% of the population); electricity final consumption per capita (kWh); population access to electricity—national (% of the population); population access to electricity—rural (% of the population); population access to electricity—urban (% of the population); renewable energy consumption (% of total final energy consumption); and energy intensity level of primary energy (megajoules per constant 2017 purchasing power parity GDP. The electricity generation subdimension reflects country performance on four indicators: the increase of off-grid renewable electricity generation; the increase of on-grid renewable electricity generation; the share of renewable electricity generation in total electricity generation; and the total electricity generation (kWh per capita). The electricity regulatory framework reflects the policy framework and governance structure crucial to the reliability of electricity supply and sustainability of the electricity sector, and the climate change and green growth subdimensions eight indicators: CO2 emissions (metric tons per capita); direct economic loss attributed to disasters relative to GDP (%); environmental goods exports as a share of total exports (%); forest land (% of land area); PM2.5 air pollution, mean annual exposure (micrograms per cubic meter); production of electricity from solar, wind, tide, wave, and other (kWh per capita); hydroelectricity (kWh per capita) and total greenhouse gas emissions (metric ton (mt) of CO2 equivalent per capita reflects performance towards sustainable development while protecting the environment by ensuring access to sustainable, affordable sources of electricity at scale and resources for the future by promoting green growth.</p>'
+      format: full_html
+      summary: ''
+translations:
+  fr:
+    status:
+      -
+        value: true
+    info:
+      -
+        value: 'Power and Electricity'
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        entity: 467719c1-16d3-455c-9459-dc19d24aa368
+    content_translation_created:
+      -
+        value: 1765797481
+    body:
+      -
+        value: '<p>Les dimensions énergie et électricité évaluent la performance et les progrès en matière de fourniture de services afin de garantir que l’accès à l’électricité et aux énergies renouvelables constitue des services durables pour les citoyens, tout en protégeant l’environnement. Les quatre sous-dimensions incluses offrent une évaluation complète de la performance du secteur et des écarts existants en matière d’accès et d’utilisation de l’électricité à grande échelle, de production d’électricité, de changement climatique et de croissance verte, ainsi que du cadre réglementaire de l’électricité. La sous-dimension accès et utilisation de l’électricité reflète la performance à travers sept indicateurs : l’accès aux combustibles et technologies propres pour la cuisson (% de la population) ; la consommation finale d’électricité par habitant (kWh) ; l’accès de la population à l’électricité – national (% de la population) ; l’accès de la population à l’électricité – rural (% de la population) ; l’accès de la population à l’électricité – urbain (% de la population) ; la consommation d’énergie renouvelable (% de la consommation finale totale d’énergie) ; et le niveau d’intensité énergétique de l’énergie primaire (mégajoules par unité de PIB en parité de pouvoir d’achat constant de 2017). La sous-dimension production d’électricité reflète la performance des pays à travers quatre indicateurs : l’augmentation de la production d’électricité renouvelable hors réseau ; l’augmentation de la production d’électricité renouvelable raccordée au réseau ; la part de la production d’électricité renouvelable dans la production totale d’électricité ; et la production totale d’électricité (kWh par habitant). Le cadre réglementaire de l’électricité reflète le cadre politique et la structure de gouvernance essentiels à la fiabilité de l’approvisionnement en électricité et à la durabilité du secteur électrique, et la sous-dimension changement climatique et croissance verte comprend huit indicateurs : les émissions de CO₂ (tonnes métriques par habitant) ; les pertes économiques directes attribuées aux catastrophes par rapport au PIB (%) ; les exportations de biens environnementaux en proportion des exportations totales (%) ; les terres forestières (% de la superficie terrestre) ; la pollution de l’air par les PM2,5, exposition annuelle moyenne (microgrammes par mètre cube) ; la production d’électricité à partir du solaire, de l’éolien, des marées, des vagues et d’autres sources (kWh par habitant) ; l’hydroélectricité (kWh par habitant) ; et les émissions totales de gaz à effet de serre (tonnes métriques d’équivalent CO₂ par habitant), reflétant la performance vers un développement durable tout en protégeant l’environnement, en assurant un accès à grande échelle à des sources d’électricité durables et abordables, et en préservant les ressources pour l’avenir grâce à la promotion de la croissance verte.</p>'
+        format: basic_html
+        summary: ''

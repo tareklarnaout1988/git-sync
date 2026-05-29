@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - indicator_score
+id: indicator_score_delete_action
+label: 'Delete indicator scores'
+type: indicator_score
+plugin: entity:delete_action:indicator_score
+configuration: {  }

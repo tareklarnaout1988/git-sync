@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - psdi_perception
+id: psdi_perception_save_action
+label: 'Save psdi perceptions'
+type: psdi_perception
+plugin: entity:save_action:psdi_perception
+configuration: {  }

@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: f5ad3b0c-64b5-4769-949a-640f5bf68667
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Regional integration '
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_target_link:
+    -
+      uri: 'internal:/psdi-dashboard/regional'
+      title: ''
+      options: {  }
+  body:
+    -
+      value: '<p class="text-align-justify">The regional integration dimension assesses country performance in four dimensions, including freedom of movement, intra-African trade, ratification of regional agreements, and infrastructure (road networks). The ratification of regional agreements subdimension has three indicators: AfCFTA ratification; intra-African exports (as % of total exports); and level of country participation in intra-African trade flows as a measure of promoting regional trade. Freedom of movement reflects country performance on three indicators: air connectivity score per 1,000 persons; air transport passengers per 1,000 persons; and the liberal access rate for visas (visa on arrival or visa-free entry). The intra-African trade subdimension focuses on air transport, freight (million ton-km); exchange rate developments (per US$); FDI; gross capital formation, private sector (% of GDP); net total official flows from all donors (current US$ per capita); time to export, border compliance (hours); time to import, border compliance (hours); total debt service: interest and amortization paid (% of exports of goods and services); and total trade outside Africa (% of total trade). Infrastructures (roads network) focuses on the share of paved roads (% of total roads); mortality caused by road traffic injury (per 100,000 population); and total road network (km) in promoting regional integration.</p>'
+      format: full_html
+      summary: ''

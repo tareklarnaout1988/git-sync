@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 2d20fcf1-a110-487f-8f9b-db5c111b09c4
+  bundle: page
+  default_langcode: en
+  depends:
+    467719c1-16d3-455c-9459-dc19d24aa368: user
+default:
+  revision_uid:
+    -
+      entity: 467719c1-16d3-455c-9459-dc19d24aa368
+  status:
+    -
+      value: true
+  uid:
+    -
+      entity: 467719c1-16d3-455c-9459-dc19d24aa368
+  title:
+    -
+      value: 'About PSDI : background and rationale'
+  created:
+    -
+      value: 1765811705
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  path:
+    -
+      alias: /page/about-psdi-background-and-rationale
+      langcode: en
+      pathauto: 1
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  body:
+    -
+      value: '<p>Existing governance and development indicators have been widely used in some way in assessing public service delivery, generating attention for important public policy issues and incentivizing policymakers and other stakeholders to take action to achieve development goals. Yet, there is no composite indicator that covers the full gamut of service delivery across all sectors, as well as sector drivers.</p><p>The Public Service Delivery Index in Africa (PSDI), an initiative of the African Development Bank Group, approved by its Board as part of the Bank’s Capacity Development Strategy for 2021–2025, is informed by development measures outlined in the African Union’s Agenda 2063 and the Sustainable Development Goals. It is aligned with the Bank’s development goals, as encapsulated in its High 5 priorities: Feed Africa, Light up and Power Africa, Integrate Africa, Industrialize Africa, and Improve the Quality of Life for the People of Africa.</p><p>According to a 2017 United Nations Development Programme study, the successful implementation of the Bank’s development goals would enable Africa to achieve almost 90% of Agenda 2063 and the Sustainable Development Goals.</p><p>The PSDI provides a central repository of data and information on service delivery in African RMCs for monitoring progress over time and transparently making that information public. Specifically, the PSDI’s value propositions include:</p><p>• Encouraging greater commitment from governments to public service delivery and to improvements in citizens’ welfare through accurate and regular performance measurement and information dissemination.</p><p>• Providing the means to estimate the development impacts of investments in public services by the African Development Bank Group, other development partners, and national governments.</p><p>• Assisting national governments and development partners in targeting investments in areas of highest development effectiveness and needs, and in sustainable infrastructure, for example, by highlighting hotspots where the potential confluence of missing or poor service delivery, of environmental stress, and of unemployment can lead to fragility, extremism, and other social ills.</p><p>• Providing fact-based indicators that will help countries track their performance within and among sectors in one database. The PSDI is a tool for sector planning and investment prioritization, spurring governments to improve performance.</p><p>• Ultimately, enhancing Africa’s adherence to the principles and standards of accountability for citizen-centered quality public services and achieving internationally adopted results-based management principles.</p><p>Read more about the PSDI, the technical and methodology report</p><drupal-media data-entity-type="media" data-entity-uuid="9074d942-91d8-4d4a-9e7e-3e3b65325e35">&nbsp;</drupal-media><drupal-media data-entity-type="media" data-entity-uuid="a764cbb9-050d-4f79-872c-68586f960d82">&nbsp;</drupal-media><p><br><strong data-start="2817" data-end="2838">Download the data</strong></p><p>&nbsp;</p>'
+      format: full_html
+      summary: ''

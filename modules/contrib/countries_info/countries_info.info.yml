@@ -1,0 +1,15 @@
+name: Countries Info
+type: module
+description: This module provides a taxonomy of countries (Countries information), providing details such as the ISO2 code, ISO3 code, country name, official name, and numeric code.
+package: Taxonomy
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:options
+  - drupal:path
+  - drupal:taxonomy
+  - drupal:text
+
+# Information added by Drupal.org packaging script on 2025-03-05
+version: '2.0.1'
+project: 'countries_info'
+datestamp: 1741160894

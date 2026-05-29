@@ -1,0 +1,57 @@
+entity.psdi_perception.settings:
+  path: "admin/structure/psdi-perception"
+  defaults:
+    _form: '\Drupal\psdi_perception\Form\PsdiPerceptionSettingsForm'
+    _title: "Psdi perception"
+  requirements:
+    _permission: "administer psdi_perception"
+
+psdi_perception.import_form:
+  path: "/admin/pdsi/admin-dashboard/perceptions-import"
+  defaults:
+    _form: '\Drupal\psdi_perception\Form\PerceptionImportForm'
+    _title: "PSDI Perception import"
+  requirements:
+    _permission: "access psdi administration pages"
+
+psdi_perception.perception_by_period:
+  path: "/data/perception/{period}"
+  defaults:
+    _controller: '\Drupal\psdi_perception\Controller\DataPerceptionController::getPerceptionByPeriod'
+    period: 2022
+  requirements:
+    _permission: "access content"
+    period: '\d{4}'
+
+psdi_perception.perception_list:
+  path: "/admin/pdsi/admin-dashboard/pdsi/perception/{period}"
+  defaults:
+    _controller: '\Drupal\psdi_perception\Controller\DataPerceptionController::listPerceptions'
+    _title: "Perception scores"
+  requirements:
+    _permission: "access psdi administration pages"
+    period: '\d+'
+  options:
+    _admin_route: TRUE
+
+psdi_perception.publish_perceptions:
+  path: "/admin/pdsi/psdi-perception-score/publish/{period}"
+  defaults:
+    _controller: '\Drupal\psdi_perception\Controller\PublishController::publishByPeriod'
+    _title: "Publish indicators"
+  requirements:
+    _permission: "access psdi administration pages"
+    period: '\d+'
+  options:
+    _admin_route: TRUE
+
+psdi_perception.unpublish_perceptions:
+  path: "/admin/pdsi/psdi-perception-score/unpublish/{period}"
+  defaults:
+    _controller: '\Drupal\psdi_perception\Controller\PublishController::unpublishByPeriod'
+    _title: "Unpublish indicators"
+  requirements:
+    _permission: "access psdi administration pages"
+    period: '\d+'
+  options:
+    _admin_route: TRUE

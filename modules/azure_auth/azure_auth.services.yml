@@ -1,0 +1,10 @@
+services:
+  azure_auth.route_subscriber:
+    class: Drupal\azure_auth\EventSubscriber\AzureAuthRouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  azure_auth.event_subscriber:
+    class: Drupal\azure_auth\EventSubscriber\SimpleLoginSubscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: event_subscriber }

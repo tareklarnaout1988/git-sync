@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the Countries Info module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function countries_info_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case "help.page.countries_info":
+      return '<p>' . t("This module provides a taxonomy of the countries (Countries information) which contains information like ISO2 code, ISO3 code, name, official name, numcode.") . '</p>';
+  }
+}

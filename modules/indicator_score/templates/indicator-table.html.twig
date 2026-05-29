@@ -1,0 +1,98 @@
+{# Get base URL for the route (without replacing placeholder in Twig) #}
+{% set base_url = path('indicator_score.indicators_list', {'period': period}) %}
+{% set base_url_no_period = base_url|replace({('/' ~ period): ''}) %}
+
+
+<form id="period-select-form" method="get" class="mb-3" style="max-width: 200px;">
+	<div class="gin-table-toolbar d-flex align-items-center justify-content-end mb-3">
+		<div class="form-item form-item--compact">
+			<label class="is-disabled form-item__label js-form-required form-required" for="edit-period">Select a Period</label>
+			<select id="period-select" class="form-select required form-element form-element--type-select">
+				{% for period_value in periods %}
+					<option value="{{ period_value }}" {% if period_value == period %} selected {% endif %}>
+						{{ period_value }}
+					</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+</form>
+<div class="form-actions mb-0">
+	<a href="{{ path('indicator_import_ui.form') }}" class="button button--action button--primary">
+		{{ 'Import indicators'|t }}
+	</a>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+const select = document.getElementById('period-select');
+const baseUrl = "{{ base_url_no_period }}";
+select.addEventListener('change', function () {
+const selectedYear = this.value;
+// Rebuild URL: /admin/indicator_score/indicators-list/{year}
+window.location.href = baseUrl + '/' + selectedYear;
+});
+});
+</script>
+
+<div class="pivot-wrapper">
+	<table id="pivot-table" class="table table-bordered table-striped table-sm">
+		<thead>
+			<tr>
+				<th rowspan="3">Country</th>
+				{% for cell in header_rows[0] %}
+					<th {% if cell.colspan %} colspan="{{ cell.colspan }}" {% endif %} {% if cell.rowspan %} rowspan="{{ cell.rowspan }}" {% endif %}>
+						{{ cell.data }}
+					</th>
+				{% endfor %}
+			</tr>
+			<tr>
+				{% for cell in header_rows[1] %}
+					<th {% if cell.colspan %} colspan="{{ cell.colspan }}" {% endif %} {% if cell.rowspan %} rowspan="{{ cell.rowspan }}" {% endif %}>
+						{{ cell.data }}
+					</th>
+				{% endfor %}
+			</tr>
+			<tr>
+				{% for cell in header_rows[2] %}
+					<th {% if cell.colspan %} colspan="{{ cell.colspan }}" {% endif %} {% if cell.rowspan %} rowspan="{{ cell.rowspan }}" {% endif %}>
+						{{ cell.data }}
+					</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for country_tid, country_name in countries %}
+				<tr>
+					<td>
+						<strong>
+							<a href="{{ path('indicator_score.country_profile', {'country': country_tid, 'period' : period}) }}">{{ country_name }}</a>
+						</strong>
+
+					</td>
+					{% for col in columns %}
+
+
+						{% set val = scores[country_tid][col.indicator_tid]['score'] is defined ? scores[country_tid][col.indicator_tid]["score"] : null %}
+						{% set indicator_score_id = scores[country_tid][col.indicator_tid]['indicator_score_id'] is defined ? scores[country_tid][col.indicator_tid]["indicator_score_id"] : null %}
+
+
+						<td class="text-end">
+							{% if val is not null %}
+								<a
+									href="{{ path('entity.indicator_score.edit_form', { 'indicator_score': indicator_score_id }, { query: { destination: path('indicator_score.indicators_list', {'period' : period}) } }) }}">
+									{# {{ '%0.2f'|format(val) }} #}
+									{{ val }}
+								</a>
+							{% else %}
+								<a class="btn btn-sm btn-success" style="color: burlywood;" href="{{ path('entity.indicator_score.add_form', {}, { query: { period: period, indicator: col.indicator_tid, country: country_tid, destination: path('indicator_score.indicators_list', {'period' : period}) } }) }}">
+									Add indicator
+								</a>
+							{% endif %}
+						</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,39 @@
+psdi_export.subdimension_xlsx:
+  path: "/psdi-export/{period}/{dimension_machine_name}/{format}"
+  defaults:
+    _controller: '\Drupal\psdi_export\Controller\PsdiExportController::exportSubdimensionXlsx'
+    _title: "PSDI Subdimension Export"
+  requirements:
+    _permission: "access content"
+    period: '\d+'
+    format: "xlsx|csv"
+
+psdi_export.dimensions_xlsx:
+  path: "/psdi-export/{period}/dimensions/{format}"
+  defaults:
+    _controller: '\Drupal\psdi_export\Controller\PsdiExportController::exportDimensionsXlsx'
+    _title: "PSDI Dimensions Export"
+  requirements:
+    _permission: "access content"
+    period: '\d+'
+    format: "xlsx|csv"
+
+psdi_export.dimensions_subdimensions_xlsx:
+  path: "/psdi-export/{period}/dimensions_subdimensions/{format}"
+  defaults:
+    _controller: '\Drupal\psdi_export\Controller\PsdiExportController::exportDimensionsAndDimensionsXlsx'
+    _title: "PSDI Dimensions Export"
+  requirements:
+    _permission: "access content"
+    period: '\d+'
+    format: "xlsx|csv"
+
+psdi_export.perceptions_xlsx:
+  path: "/psdi-export/perceptions/{period}/{format}"
+  defaults:
+    _controller: '\Drupal\psdi_export\Controller\PsdiExportController::exportPerceptionXlsx'
+    _title: "PSDI Perceptions Export"
+  requirements:
+    _permission: "access content"
+    period: '\d+'
+    format: "xlsx|csv"

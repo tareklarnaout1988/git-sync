@@ -1,0 +1,7 @@
+name: 'azure_auth'
+type: module
+description: 'Custom Azure AD authentication module'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:user

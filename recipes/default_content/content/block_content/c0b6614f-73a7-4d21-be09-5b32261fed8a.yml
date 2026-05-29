@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: c0b6614f-73a7-4d21-be09-5b32261fed8a
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Food sovereignty'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_target_link:
+    -
+      uri: 'internal:/psdi-dashboard/food'
+      title: ''
+      options: {  }
+  body:
+    -
+      value: '<p class="text-align-justify">The food sovereignty dimensions assess service delivery performance and progress in ensuring that food is provided as a sustainable service to citizens, guaranteeing that citizens have access to stable, sufficient amounts of nutritious food to live a healthy, productive, and active life. The four subdimensions: agricultural value chain development, end extreme poverty, eliminate hunger, and net agricultural exports (product diversity), delineate various aspects in achieving food sovereignty. The agricultural value chain development subdimension assesses performance using two indicators: the agriculture gross per capita production index number and the agriculture, value added (% of GDP). The end extreme poverty indicators: arable land (% of land area); fertilizers by nutrient, use per area of cropland (kg/ha); irrigated land (as % of land area); permanent pastures (as % of land area); and water use efficiency (US$ per cubic meter) for improved productivity and downstream impacts on agricultural value chain development and, ultimately, food security. The eliminate hunger subdimension reflects a country’s progress on four indicators: daily calorie intake supply per capita, prevalence of stunting, prevalence of undernourishment, while the Net exports (product diversity) subdimension reflects countries’ food aid in cereals (metric tons per capita), exports of food and live animals (% of total exports), and the value of net food and live animal exports (US$) contributing to food stability.</p>'
+      format: full_html
+      summary: ''

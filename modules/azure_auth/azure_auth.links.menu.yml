@@ -1,0 +1,5 @@
+azure_auth.azure_config:
+  title: Azure AD SSO configuration
+  parent: system.admin_config_system
+  route_name: azure_auth.azure_config
+  weight: 10

@@ -1,0 +1,7 @@
+name: Indicator Import UI
+type: module
+description: Upload XLSX and import indicators (unpivot) without Drush, via Batch API
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:file

@@ -1,0 +1,8 @@
+services:
+  psdi_perception.perception_importer:
+    class: Drupal\psdi_perception\Service\PerceptionImporter
+    arguments: ['@entity_type.manager', '@file_system']  # (ou ce que tu as déjà)
+
+  psdi_perception.perception_repository:
+    class: Drupal\psdi_perception\Service\PerceptionRepository
+    arguments: ['@entity_type.manager', '@database', '@indicator_score.indicator_repository']

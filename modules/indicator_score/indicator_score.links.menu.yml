@@ -1,0 +1,11 @@
+entity.indicator_score.settings:
+  title: 'Indicator score'
+  description: 'Configure an Indicator score entity type.'
+  route_name:  entity.indicator_score.settings
+  parent: system.admin_structure
+
+entity.indicator_score.collection:
+  title: 'Indicator scores'
+  description: 'List of indicator scores.'
+  route_name: entity.indicator_score.collection
+  parent: system.admin_content

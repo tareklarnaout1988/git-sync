@@ -1,0 +1,70 @@
+entity.indicator_score.settings:
+  path: "admin//pdsi/indicator-score"
+  defaults:
+    _form: '\Drupal\indicator_score\Form\IndicatorScoreSettingsForm'
+    _title: "Indicator score"
+  requirements:
+    _permission: "administer indicator_score"
+
+indicator_score.country_profile:
+  path: "admin/pdsi/indicator_score/country-profile/{country}/{period}"
+  defaults:
+    _title: "Country Profile"
+    _form: 'Drupal\indicator_score\Form\CountryProfileForm'
+  requirements:
+    _permission: "access administration pages"
+    country: '\d+' # par ex. un ID numérique (taxonomy_term id)
+    period: '\d+' # pareil, numérique
+
+indicator_score.indicators_list:
+  path: "/admin/pdsi/admin-dashboard/indicator_score/indicators-list/{period}"
+  defaults:
+    _controller: '\Drupal\indicator_score\Controller\IndicatorScoreController'
+    _title_callback: '\Drupal\indicator_score\Controller\IndicatorScoreController::title'
+
+  requirements:
+    _permission: "access psdi administration pages"
+    period: '\d+'
+
+indicator_score.admin_dashboard:
+  path: "/admin/pdsi/admin-dashboard"
+  defaults:
+    _controller: '\Drupal\indicator_score\Controller\AdminDashboardController::dashboard'
+    _title: "Indicator and perception by year"
+  requirements:
+    _permission: "access psdi administration pages"
+  options:
+    _admin_route: TRUE
+
+indicator_score.admin_dashboard_missing:
+  path: "/admin/pdsi/admin-dashboard/{period}/missing"
+  defaults:
+    _controller: '\Drupal\indicator_score\Controller\AdminDashboardController::missingDetails'
+    _title: "Missing indicators"
+  requirements:
+    _permission: "access psdi administration pages"
+    period: '\d+'
+  options:
+    _admin_route: TRUE
+
+indicator_score.publish_indicators:
+  path: "/admin/pdsi/indicator-score/publish/{period}"
+  defaults:
+    _controller: '\Drupal\indicator_score\Controller\PublishController::publishByPeriod'
+    _title: "Publish indicators"
+  requirements:
+    _permission: "access psdi administration pages"
+    period: '\d+'
+  options:
+    _admin_route: TRUE
+
+indicator_score.unpublish_indicators:
+  path: "/admin/pdsi/indicator-score/unpublish/{period}"
+  defaults:
+    _controller: '\Drupal\indicator_score\Controller\PublishController::unpublishByPeriod'
+    _title: "Unpublish indicators"
+  requirements:
+    _permission: "access psdi administration pages"
+    period: '\d+'
+  options:
+    _admin_route: TRUE

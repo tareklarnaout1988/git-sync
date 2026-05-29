@@ -1,0 +1,113 @@
+<?php
+
+
+
+/**
+ * S'exécute à l'installation du module.
+ * Ajoute une UNIQUE KEY (country, period) sur la table "psdi_perception".
+ */
+function psdi_perception_install(): void
+{
+    $schema = \Drupal::database()->schema();
+
+    // La table des content entities est créée pendant l'installation du module.
+    // On peut donc ajouter l'index ici.
+    if (!$schema->tableExists('psdi_perception')) {
+        // Si jamais la table n'est pas encore créée (cas exotique), on sort proprement.
+        return;
+    }
+
+    // Nom court pour rester < 64 chars (limite MySQL).
+    $key_name = 'uniq_country_period';
+
+    // Si un index du même nom existe déjà (réinstall partielle, etc.), on tente de le retirer.
+    if ($schema->indexExists('psdi_perception', $key_name)) {
+        // On essaye d'abord comme UNIQUE, sinon comme index normal.
+        try {
+            $schema->dropUniqueKey('psdi_perception', $key_name);
+        } catch (\Throwable $e) {
+            try {
+                $schema->dropIndex('indicpsdi_perceptionator_score', $key_name);
+            } catch (\Throwable $ignored) {
+                // On ignore et on tentera la (re)création plus bas.
+            }
+        }
+    }
+
+    // Créer la contrainte UNIQUE.
+    try {
+        $schema->addUniqueKey('psdi_perception', $key_name, ['country', 'period']);
+    } catch (\Throwable $e) {
+        // À l'installation fraîche il ne devrait pas y avoir de doublons,
+        // mais on log au cas où.
+        \Drupal::logger('psdi_perception')->error(
+            'Failed to add UNIQUE key @key on {psdi_perception} during install: @msg',
+            ['@key' => $key_name, '@msg' => $e->getMessage()]
+        );
+        throw $e;
+    }
+}
+
+/**
+ * (Optionnel) À la désinstallation, on nettoie.
+ */
+function psdi_perception_uninstall(): void
+{
+    $schema = \Drupal::database()->schema();
+    if ($schema->tableExists('psdi_perception')) {
+        $key_name = 'uniq_country_period';
+        // On tente de supprimer proprement, peu importe le type.
+        try {
+            $schema->dropUniqueKey('psdi_perception', $key_name);
+        } catch (\Throwable $e) {
+            try {
+                $schema->dropIndex('psdi_perception', $key_name);
+            } catch (\Throwable $ignored) {
+            }
+        }
+    }
+}
+
+/**
+ * Ajoute une unique key (country, indicator, period) sur la table "indicator".
+ */
+function psdi_perception_update_9001(): void
+{
+    $connection = \Drupal::database();
+    $schema = $connection->schema();
+
+    if (!$schema->tableExists('psdi_perception')) {
+        return;
+    }
+
+    // index name
+    $key_name = 'uniq_country_period';
+
+    // Si un index/clé du même nom existe, on le supprime d’abord.
+    // (indexExists fonctionne aussi pour les UNIQUE sur MySQL)
+    if ($schema->indexExists('psdi_perception', $key_name)) {
+        try {
+            $schema->dropUniqueKey('psdi_perception', $key_name);
+        } catch (\Throwable $e) {
+            // Selon le SGBD, dropUniqueKey échouera si ce n’était pas un UNIQUE.
+            // On tente un dropIndex de secours.
+            try {
+                $schema->dropIndex('psdi_perception', $key_name);
+            } catch (\Throwable $ignored) {
+                // On ignore, on créera la clé plus bas.
+            }
+        }
+    }
+
+    // Créer la contrainte UNIQUE.
+    try {
+        $schema->addUniqueKey('psdi_perception', $key_name, ['country', 'period']);
+    } catch (\Throwable $e) {
+        // Échec fréquent si des doublons existent déjà.
+        \Drupal::logger('psdi_perception')->error(
+            'Failed to add UNIQUE key @key on {psdi_perception}: @msg',
+            ['@key' => $key_name, '@msg' => $e->getMessage()]
+        );
+        throw $e;
+    }
+}

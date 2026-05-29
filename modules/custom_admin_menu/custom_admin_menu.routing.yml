@@ -1,0 +1,29 @@
+custom_admin_menu.main:
+  path: '/admin/custom-menu'
+  defaults:
+    _controller: '\Drupal\custom_admin_menu\Controller\CustomAdminMenuController::main'
+    _title: 'Custom admin menu'
+  requirements:
+    _permission: 'access custom admin menu pages'
+  options:
+    _admin_route: TRUE
+
+custom_admin_menu.sub_one:
+  path: '/admin/custom-menu/first'
+  defaults:
+    _controller: '\Drupal\custom_admin_menu\Controller\CustomAdminMenuController::firstSubPage'
+    _title: 'First submenu page'
+  requirements:
+    _permission: 'access custom admin menu pages'
+  options:
+    _admin_route: TRUE
+
+custom_admin_menu.sub_two:
+  path: '/admin/custom-menu/second'
+  defaults:
+    _controller: '\Drupal\custom_admin_menu\Controller\CustomAdminMenuController::secondSubPage'
+    _title: 'Second submenu page'
+  requirements:
+    _permission: 'access custom admin menu pages'
+  options:
+    _admin_route: TRUE

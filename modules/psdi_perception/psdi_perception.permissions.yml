@@ -1,0 +1,17 @@
+administer psdi_perception:
+  title: 'Administer psdi perceptions'
+  restrict access: true
+view psdi_perception:
+  title: 'View psdi perception'
+edit psdi_perception:
+  title: 'Edit psdi perception'
+delete psdi_perception:
+  title: 'Delete psdi perception'
+create psdi_perception:
+  title: 'Create psdi perception'
+view psdi_perception revision:
+  title: 'View psdi perception revision'
+revert psdi_perception revision:
+  title: 'Revert psdi perception revision'
+delete psdi_perception revision:
+  title: 'Delete psdi perception revision'

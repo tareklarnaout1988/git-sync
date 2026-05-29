@@ -1,0 +1,17 @@
+administer indicator_score:
+  title: 'Administer indicator scores'
+  restrict access: true
+view indicator_score:
+  title: 'View indicator score'
+edit indicator_score:
+  title: 'Edit indicator score'
+delete indicator_score:
+  title: 'Delete indicator score'
+create indicator_score:
+  title: 'Create indicator score'
+view indicator_score revision:
+  title: 'View indicator score revision'
+revert indicator_score revision:
+  title: 'Revert indicator score revision'
+delete indicator_score revision:
+  title: 'Delete indicator score revision'

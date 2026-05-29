@@ -1,0 +1,22 @@
+entity.psdi_perception.settings:
+  title: 'Settings'
+  route_name: entity.psdi_perception.settings
+  base_route: entity.psdi_perception.settings
+entity.psdi_perception.view:
+  title: 'View'
+  route_name: entity.psdi_perception.canonical
+  base_route: entity.psdi_perception.canonical
+entity.psdi_perception.edit_form:
+  title: 'Edit'
+  route_name: entity.psdi_perception.edit_form
+  base_route: entity.psdi_perception.canonical
+entity.psdi_perception.delete_form:
+  title: 'Delete'
+  route_name: entity.psdi_perception.delete_form
+  base_route: entity.psdi_perception.canonical
+  weight: 10
+entity.psdi_perception.collection:
+  title: 'Psdi perceptions'
+  route_name: entity.psdi_perception.collection
+  base_route: system.admin_content
+  weight: 10

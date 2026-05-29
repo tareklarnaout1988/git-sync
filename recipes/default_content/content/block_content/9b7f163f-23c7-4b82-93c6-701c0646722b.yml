@@ -1,0 +1,71 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 9b7f163f-23c7-4b82-93c6-701c0646722b
+  bundle: basic
+  default_langcode: en
+  depends:
+    467719c1-16d3-455c-9459-dc19d24aa368: user
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Data explorer'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 0
+  content_translation_created:
+    -
+      value: 1771842013
+  field_target_link:
+    -
+      uri: 'internal:/psdi-dashboard/dataexplorer'
+      title: ''
+      options: {  }
+  body:
+    -
+      value: '<p class="text-align-justify">The perception captures households’ experience and level of satisfaction with the quality of services received based on their interactions with service delivery systems. Households rated services on key dimensions, including accessibility, reliability, quality, frequency, and affordability, on a scale of 0 to 10, where 0 is the worst or none at all, and 10. The perception scores were grouped into three categories to highlight PSDI satisfaction levels at which different proportions of countries fall. 70 and above (7-10) represent high perception score with households highly satisfied with service delivery or the service quality achieved. 50–69 (5-6) represent medium perception score, with households moderately satisfied with the quality of services, not very enthusiastic, preferring improvement. Below 50 (0-4) perception score represents low satisfaction with service delivery and quality received, households are dissatisfied, preferring significant improvements.</p>'
+      format: full_html
+      summary: ''
+translations:
+  fr:
+    status:
+      -
+        value: true
+    info:
+      -
+        value: 'Data explorer'
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        entity: 467719c1-16d3-455c-9459-dc19d24aa368
+    content_translation_created:
+      -
+        value: 1765887816
+    body:
+      -
+        value: "<p class=\"text-align-justify\">La perception reflète l'expérience et le niveau de satisfaction des ménages quant à la qualité des services reçus, en fonction de leurs interactions avec les systèmes de prestation de services. Les ménages ont évalué les services selon des dimensions clés, notamment l'accessibilité, la fiabilité, la qualité, la fréquence et l'abordabilité, sur une échelle de 0 à 10, où 0 représente la pire des satisfactions (absence totale de service) et 10, la plus élevée. Les scores de perception ont été regroupés en trois catégories afin de mettre en évidence les niveaux de satisfaction (PSDI) auxquels se situent différentes proportions de pays. Un score de 70 et plus (7-10) indique une perception élevée, les ménages étant très satisfaits de la prestation de services ou de la qualité du service obtenu. Un score de 50 à 69 (5-6) indique une perception moyenne, les ménages étant modérément satisfaits de la qualité des services, sans être très enthousiastes, et souhaitant des améliorations. Un score de perception inférieur à 50 (0-4) indique une faible satisfaction quant à la prestation de services et à la qualité reçue, les ménages étant insatisfaits et souhaitant des améliorations significatives.</p>"
+        format: full_html
+        summary: ''

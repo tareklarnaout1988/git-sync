@@ -1,0 +1,66 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.cit_countries_information.field_citf_continent
+    - field.field.taxonomy_term.cit_countries_information.field_citf_iso2_code
+    - field.field.taxonomy_term.cit_countries_information.field_citf_iso3_code
+    - field.field.taxonomy_term.cit_countries_information.field_citf_iso_num_code
+    - field.field.taxonomy_term.cit_countries_information.field_citf_official_name
+    - taxonomy.vocabulary.cit_countries_information
+  module:
+    - options
+    - text
+id: taxonomy_term.cit_countries_information.default
+targetEntityType: taxonomy_term
+bundle: cit_countries_information
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_citf_continent:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_citf_iso2_code:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_citf_iso3_code:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_citf_iso_num_code:
+    weight: 4
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_citf_official_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

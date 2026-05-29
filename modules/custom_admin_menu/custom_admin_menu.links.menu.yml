@@ -1,0 +1,20 @@
+custom_admin_menu.main:
+  title: 'Custom menu'
+  description: 'Test custom admin menu.'
+  route_name: custom_admin_menu.main
+  parent: system.admin
+  weight: -50
+
+custom_admin_menu.sub_one:
+  title: 'First submenu'
+  description: 'First submenu test page.'
+  route_name: custom_admin_menu.sub_one
+  parent: custom_admin_menu.main
+  weight: 0
+
+custom_admin_menu.sub_two:
+  title: 'Second submenu'
+  description: 'Second submenu test page.'
+  route_name: custom_admin_menu.sub_two
+  parent: custom_admin_menu.main
+  weight: 1

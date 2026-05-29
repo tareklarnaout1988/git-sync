@@ -1,0 +1,10 @@
+entity.psdi_perception.edit_form:
+  route_name: entity.psdi_perception.edit_form
+  group: psdi_perception
+  title: 'Edit'
+
+entity.psdi_perception.delete_form:
+  route_name: entity.psdi_perception.delete_form
+  group: psdi_perception
+  title: 'Delete'
+  weight: 10

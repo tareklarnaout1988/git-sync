@@ -1,0 +1,38 @@
+_meta:
+  version: '1.0'
+  entity_type: user
+  uuid: 467719c1-16d3-455c-9459-dc19d24aa368
+  default_langcode: en
+default:
+  preferred_langcode:
+
+  - value: en
+  name:
+
+  - value: TAREK.LARNAOUT
+  mail:
+
+  - value: T.LARNAOUT@AFDB.ORG
+  timezone:
+
+  - value: Africa/Abidjan
+  status:
+
+  - value: true
+  created:
+
+  - value: 1760607431
+  access:
+
+  - value: 1771845153
+  login:
+
+  - value: 1771844758
+  roles:
+
+  - target_id: psdi_administrator
+  path:
+
+  - alias: ''
+    langcode: en
+    pathauto: 0

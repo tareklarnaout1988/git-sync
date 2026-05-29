@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 63d3cf2b-c4d1-458c-a7f1-b90d94594406
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'PSDI Dashboard'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_target_link:
+    -
+      uri: 'internal:/psdi-dashboard'
+      title: ''
+      options: {  }
+  body:
+    -
+      value: '<p class="text-align-justify"><img style="padding-left:20px;" src="/PSDI/web/sites/default/files/inline-images/PSDI.png" data-align="right" data-entity-uuid="68b03096-83e0-4b9d-8fd2-3bc5d6918311" data-entity-type="file" width="477" height="325">The public service delivery Index (PSDI) is a composite indicator measuring the performance and progress in public service delivery outcomes and impacts, with insights into improvement areas. The index scores the countries’ performance relative to the ideal performance chosen as the highest achieved by countries. The scores range from 0–100, with zero representing the worst-case and 100 the ideal performance or progress. The index has five dimensions: Power and Electricity, Food Sovereignty, Regional Integration, Industrialization, and Socioeconomic Inclusion of the public service delivery system. The core of the index is 100 individual indicators from the Bank data information highway and other international datasets. The individual indicator scores calculated across countries at the indicators’ level are aggregated at the various layers (subdimensions, dimensions) and finally the Index score is formed. To illustrate, an Index or dimension score of 40.10 suggests achievement or progress to 40.10% of the ideal performance in the underlying indicators. Therefore, there is a gap of 59.90% (100–40.10) room for improvement. Present a graphic that shows the country PSDI performance score in comparison to the ideal (100) that also highlights the gap (Shaded), showing what is the remaining distance to cover until the best performance is reached.</p><div class="d-flex align-items-center gap-2"><p><span class="text-align-justify">Read more about the PSDI, the</span></p><drupal-media data-entity-type="media" data-entity-uuid="9074d942-91d8-4d4a-9e7e-3e3b65325e35">&nbsp;</drupal-media></div><p class="text-align-justify"><a href="#">Download the report</a>&nbsp;</p><p class="text-align-justify"><a href="#">Download the data</a></p>'
+      format: full_html
+      summary: ''

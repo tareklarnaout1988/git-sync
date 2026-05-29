@@ -1,0 +1,7 @@
+indicator_import_ui.form:
+  path: '/admin/pdsi/admin-dashboard/indicators-import'
+  defaults:
+    _form: '\Drupal\indicator_import_ui\Form\IndicatorImportForm'
+    _title: 'Import Indicators (XLSX)'
+  requirements:
+    _permission: 'access psdi administration pages'

@@ -1,0 +1,6 @@
+indicator_import_ui.form:
+  title: 'Import Indicators (XLSX)'
+  description: 'Upload an Excel file to import/update indicator entities'
+  route_name: indicator_import_ui.form
+  parent: system.admin_content
+  weight: 20

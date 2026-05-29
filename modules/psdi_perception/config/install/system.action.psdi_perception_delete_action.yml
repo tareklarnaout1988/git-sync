@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - psdi_perception
+id: psdi_perception_delete_action
+label: 'Delete psdi perceptions'
+type: psdi_perception
+plugin: entity:delete_action:psdi_perception
+configuration: {  }

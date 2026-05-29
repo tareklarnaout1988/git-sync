@@ -1,0 +1,5 @@
+psdi_perception.add_form:
+  title: 'Add psdi perception'
+  route_name: entity.psdi_perception.add_form
+  appears_on:
+    - entity.psdi_perception.collection

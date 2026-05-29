@@ -1,0 +1,41 @@
+/* conteneurs */
+.pivot { position: relative; }
+.pivot-header {
+  position: sticky; top: 0; z-index: 50; /* reste visible en haut */
+  overflow: hidden; /* on synchronise son scrollLeft via JS */
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+.pivot-body {
+  overflow-x: auto; /* scroll horizontal ici */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* tables en layout fixe pour aligner facilement */
+#pivot-header, #pivot-body {
+  table-layout: fixed;
+  border-collapse: separate; /* garde les bordures visibles proprement */
+  border-spacing: 0;
+  width: max-content; /* s’étend selon les colonnes */
+}
+
+/* cellules */
+#pivot-header th, #pivot-body td {
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid #dee2e6;
+  padding: .25rem .5rem;
+  text-align: center;
+}
+
+/* colonne Country “gelée” à gauche */
+.country-col {
+  position: sticky; left: 0; z-index: 60; background: #fff; /* au-dessus des autres */
+  min-width: 180px; /* ajuste si besoin */
+  text-align: left;
+}
+
+/* header lignes (optionnel, si tu veux différencier visuellement) */
+#pivot-header thead tr:nth-child(1) th { font-weight: 700; }
+#pivot-header thead tr:nth-child(2) th { font-weight: 600; }
+#pivot-header thead tr:nth-child(3) th { font-weight: 500; }

@@ -1,0 +1,46 @@
+azure_auth.login:
+  path: '/azure-auth/login'
+  defaults:
+    _title: 'Login with Azure AD'
+    _controller: '\Drupal\azure_auth\Controller\AzureAuthController::login'
+  requirements:
+    _custom_access: '\Drupal\azure_auth\Access\AnonymousAccessCheck::access'
+
+azure_auth.callback:
+  path: '/azure-ad/callback'
+  defaults:
+    _controller: 'Drupal\azure_auth\Controller\AzureAuthController::callback'
+    _title: 'Azure AD Callback'
+  requirements:
+    _permission: 'access content'
+
+azure_auth.azure_config:
+  path: '/admin/config/system/azure-config'
+  defaults:
+    _title: 'Azure AD SSO configuration'
+    _form: 'Drupal\azure_auth\Form\AzureConfigForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+drupal_login:
+  path: '/user/login/psdi/backend'
+  defaults:
+    _controller: '\Drupal\azure_auth\Controller\AzureAuthController::drupallogin'
+  requirements:
+    _custom_access: '\Drupal\azure_auth\Access\AnonymousAccessCheck::access'
+
+drupal_access_denied:
+  path: '/access-denied'
+  defaults:
+    _title: 'Page Not Found'
+    _controller: '\Drupal\azure_auth\Controller\AzureAuthController::accessDenied'
+  requirements:
+    _permission: 'access content'
+
+drupal_not_found:
+  path: '/not-found'
+  defaults:
+    _title: '404 Not found'
+    _controller: '\Drupal\azure_auth\Controller\AzureAuthController::notFound'
+  requirements:
+    _permission: 'access content'

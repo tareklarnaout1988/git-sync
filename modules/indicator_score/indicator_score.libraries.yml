@@ -1,0 +1,19 @@
+datatables:
+  version: 1.x
+  css:
+    theme:
+      https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css: { type: external }
+      https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css: { type: external }
+      https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.bootstrap5.min.css: { type: external }
+
+      css/indicator_score.css: {}
+  js:
+    https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js: { type: external, minified: true }
+    https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js: { type: external }
+    https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js: { type: external }
+    js/indicator_score.js: {}
+    # js/pivot-sync.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once

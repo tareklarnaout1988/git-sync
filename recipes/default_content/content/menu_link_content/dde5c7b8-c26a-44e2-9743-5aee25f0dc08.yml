@@ -1,0 +1,76 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: dde5c7b8-c26a-44e2-9743-5aee25f0dc08
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    467719c1-16d3-455c-9459-dc19d24aa368: user
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: Industrialization
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      uri: 'internal:/psdi-dashboard/industrialisation'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -44
+  expanded:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 0
+  content_translation_status:
+    -
+      value: true
+  content_translation_created:
+    -
+      value: 1765901092
+translations:
+  fr:
+    title:
+      -
+        value: Industrialisation
+    revision_translation_affected:
+      -
+        value: true
+    content_translation_source:
+      -
+        value: en
+    content_translation_outdated:
+      -
+        value: false
+    content_translation_uid:
+      -
+        entity: 467719c1-16d3-455c-9459-dc19d24aa368
+    content_translation_status:
+      -
+        value: true
+    content_translation_created:
+      -
+        value: 1765797684

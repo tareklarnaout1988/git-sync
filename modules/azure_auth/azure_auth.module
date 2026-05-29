@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for azure_auth module.
+ */
+
+
+/**
+ * Implements hook_theme().
+ */
+function azure_auth_theme($existing, $type, $theme, $path)
+{
+    return [
+        'access_denied' => [
+            'variables' => [
+                'title' => NULL,
+                'path' => NULL,
+            ],
+            'template' => 'access-denied',
+        ],
+        'not_found' => [
+            'variables' => [
+                'title' => NULL,
+                'path' => NULL,
+            ],
+            'template' => 'not-found',
+        ],
+
+    ];
+}

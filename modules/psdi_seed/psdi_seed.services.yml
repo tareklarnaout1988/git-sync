@@ -1,0 +1,3 @@
+services:
+  psdi_seed.taxonomy_setup:
+    class: Drupal\psdi_seed\Setup\TaxonomySetup

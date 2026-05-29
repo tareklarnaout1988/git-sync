@@ -1,0 +1,5 @@
+indicator_score.add_form:
+  title: 'Add indicator score'
+  route_name: entity.indicator_score.add_form
+  appears_on:
+    - entity.indicator_score.collection
